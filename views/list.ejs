@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300;1,400;1,500&family=Pacifico&family=Prompt:ital,wght@0,200;0,400;0,600;0,800;1,200;1,400;1,600;1,800&family=Rancho&family=Ysabeau+Infant:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap" rel="stylesheet">
+    <link href="../css/liststyle.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="heading item">
+            <h1 id="titleElement" style="padding: 0 10px"><%= displayName %></h1>
+        </div>
+        
+        <div class="divider"></div>
+
+            <% itemList.forEach(item => { %>
+                <div class="item list">
+                    <input type="checkbox" id="<%=item._id%>">
+                    <p><%=item.name%></p>
+                </div>    
+                <div class="sm-divider"></div>
+            <% }) %>
+
+        <div class="divider"></div>
+
+        
+        <div class="item addNew">
+            <form action="/add-item/<%=displayName%>" method="post">
+                <input type="text" class="addItem" name="addItem" placeholder="Add new item." autofocus autocomplete="off">
+                <button class="add" type="submit"> + </button>
+            </form>
+            <button class="delete" type="submit"> X </button>
+        </div>
+        
+        
+    </div>
+    <script src="../jscript/script.js"></script>
+</body>
+</html>
